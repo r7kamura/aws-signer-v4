@@ -2,7 +2,7 @@
   "author": "Ryo Nakamura",
   "license": "MIT",
   "main": "index.js",
-  "name": "aws-sign-v4",
+  "name": "aws-signer-v4",
   "repository": "r7kamura/aws-signer-v4",
   "version": "0.0.1"
 }
