@@ -1,5 +1,5 @@
-# aws-sign-v4
-A library for AWS Signature version 4.
+# aws-signer-v4
+Create signature from request and credentials.
 
 ## Install
 ```
@@ -20,7 +20,7 @@ var request = {
 };
 
 // Create a Sign instance
-var Sign = require('aws-sign-v4')
+var Sign = require('aws-signer-v4')
 var sign = new Sign(
   accessKeyId: 'AWS_ACCESS_KEY_ID',
   body: request.body,
