@@ -1,5 +1,5 @@
 # aws-signer-v4
-Create signature from request and credentials.
+Create AWS Signature v4 from request information and credentials.
 
 ## Install
 ```
