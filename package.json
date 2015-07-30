@@ -1,0 +1,7 @@
+{
+  "author": "Ryo Nakamura",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "aws-sign-v4",
+  "version": "0.0.1",
+}
