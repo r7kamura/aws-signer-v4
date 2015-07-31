@@ -7,7 +7,7 @@ var url = require('url');
  * @property {string} body
  * @property {object} headers
  * @property {string} method
- * @property {string} region
+ * @property {string=} region
  * @property {string} secretAccessKey
  * @property {string} url
  */
@@ -78,7 +78,7 @@ Sign.prototype._getCredential = function () {
 Sign.prototype._getCredentialString = function () {
   return [
     this._getDateInShortString(),
-    this.region,
+    this._getRegion(),
     this._getService(),
     'aws4_request'
   ].join('/');
@@ -137,6 +137,13 @@ Sign.prototype._getQuery = function () {
 /**
  * @return {string}
  */
+Sign.prototype._getRegion = function () {
+  return this.region || url.parse(this.url).host.split('.')[1];
+};
+
+/**
+ * @return {string}
+ */
 Sign.prototype._getService = function () {
   return url.parse(this.url).host.split('.', 2)[0];
 };
@@ -146,7 +153,7 @@ Sign.prototype._getService = function () {
  */
 Sign.prototype._getSignature = function () {
   kDate = this._hmac('AWS4' + this.secretAccessKey, this._getDateInShortString());
-  kRegion = this._hmac(kDate, this.region);
+  kRegion = this._hmac(kDate, this._getRegion());
   kService = this._hmac(kRegion, this._getService());
   kCredentials = this._hmac(kService, 'aws4_request');
   signature = this._hexhmac(kCredentials, this._getStringToSign());
