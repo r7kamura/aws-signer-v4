@@ -122,14 +122,16 @@ Sign.prototype._getDateInShortString = function () {
  * @return {string}
  */
 Sign.prototype._getPath = function () {
-  return url.parse(this.url).path;
+  return url.parse(this.url).pathname;
 };
 
 /**
  * @return {string}
  */
 Sign.prototype._getQuery = function () {
-  return url.parse(this.url).search || '';
+  var q = url.parse(this.url).query;
+  if(!q){ return '';}
+  return q.split('&').sort().join('&');
 };
 
 /**
