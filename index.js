@@ -186,7 +186,7 @@ Sign.prototype._hmac = function (key, value) {
  * @return {string}
  */
 Sign.prototype._hexdigest = function (key) {
-  return crypto.createHash('sha256').update(key).digest('hex');
+  return crypto.createHash('sha256').update(key, 'utf8').digest('hex');
 };
 
 /**
