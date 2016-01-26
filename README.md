@@ -32,5 +32,5 @@ var sign = new Sign(
 );
 
 // Call #toString method to generate Authorization header value
-headers.Authroziation = sign.toString()
+headers.Authrozation = sign.toString()
 ```
