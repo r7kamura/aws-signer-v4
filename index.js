@@ -145,7 +145,7 @@ Sign.prototype._getRegion = function () {
  * @return {string}
  */
 Sign.prototype._getService = function () {
-  return url.parse(this.url).host.split('.', 2)[0];
+  return url.parse(this.url).host.split('.', 2)[1];
 };
 
 /**
