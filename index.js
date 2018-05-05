@@ -145,7 +145,12 @@ Sign.prototype._getRegion = function () {
  * @return {string}
  */
 Sign.prototype._getService = function () {
-  return url.parse(this.url).host.split('.', 2)[0];
+  var host = url.parse(this.url).host.split('.');
+  if(host[1] === 'execute-api') {
+    return host[1];
+  } else {
+    return host[0];
+  }
 };
 
 /**
